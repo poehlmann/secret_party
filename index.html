@@ -6,9 +6,7 @@
     <style>
         body {
             background-color: black;
-
             display: flex;
-            align-items: center;
             justify-content: center;
             flex-direction: column;
             min-height: 100vh;
@@ -16,11 +14,24 @@
             margin: 0;
             background-repeat: repeat-y;
         }
-        .img-party{
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+        }
+        .img-party-web{
             background-image: url(background-web-party.png);
+            display: block;
+        }
+        .img-party-mobile{
+            display: none;
         }
         @media screen and (max-width:991px){
-            .img-party{
+            .img-party-web{
+                display: none;
+            }
+            .img-party-mobile{
+                display: block;
                 background-image: url(background-movil-party.png);
                 background-repeat: no-repeat;
                 background-position: top;
@@ -29,11 +40,13 @@
     </style>
 </head>
 <body>
-<picture>
-    <source media="(min-width: 1200px)" srcset="background-web-party.png">
-    <source media="(min-width: 991px)" srcset="background-movil-party.png">
-    <img src="background-movil-party.png"/>
-</picture>
+<img class="img-party-web" src="background-web-party.png">
+<img class="img-party-mobile" src="background-movil-party.png">
+<!--<picture>-->
+<!--    <source media="(min-width: 1200px)" srcset="background-web-party.png">-->
+<!--    <source media="(min-width: 991px)" srcset="background-movil-party.png">-->
+<!--    <img src="background-movil-party.png"/>-->
+<!--</picture>-->
 <div class="countdownwrap"></div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
