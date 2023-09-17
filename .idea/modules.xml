@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/secret_party.iml" filepath="$PROJECT_DIR$/.idea/secret_party.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sunfest.iml" filepath="$PROJECT_DIR$/.idea/sunfest.iml" />
     </modules>
   </component>
 </project>

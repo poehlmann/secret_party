@@ -1,178 +1,520 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" dir="ltr">
 <head>
-    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>Secret Party</title>
-    <style>
-        body {
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            min-height: 100vh;
-            font-family: 'Lato', sans-serif;
-            margin: 0;
-            background-repeat: repeat-y;
-        }
-        img {
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-        }
-        .img-party-web{
-            background-image: url(background-web-party.png);
-            display: block;
-            width: fit-content;
-        }
-        .img-party-mobile{
-            display: none;
-        }
-        @media screen and (max-width:991px){
-            .img-party-web{
-                display: none;
-            }
-            .img-party-mobile{
-                display: block;
-                background-image: url(background-movil-party.png);
-                background-repeat: no-repeat;
-                background-position: top;
-            }
-        }
-    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+<!--    sweet alert-->
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+
 </head>
+
 <body>
-<img class="img-party-web" src="background-web-party.png">
-<img class="img-party-mobile" src="background-movil-party.png">
-<!--<picture>-->
-<!--    <source media="(min-width: 1200px)" srcset="background-web-party.png">-->
-<!--    <source media="(min-width: 991px)" srcset="background-movil-party.png">-->
-<!--    <img src="background-movil-party.png"/>-->
-<!--</picture>-->
-<div class="countdownwrap" style="width: 40%;display: flex;margin-left: 30%;"></div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script>
-    var ringer = {
-        countdown_to: "10/28/2023",
-        rings: {
-            'Días': {
-                s: 86400000, // mseconds in a day,
-                max: 365
-            },
-            'Horas': {
-                s: 3600000, // mseconds per hour,
-                max: 24
-            },
-            'Minutos': {
-                s: 60000, // mseconds per minute
-                max: 60
-            },
-            'Segundos': {
-                s: 1000,
-                max: 60
-            },
-            'Microsegundos': {
-                s: 10,
-                max: 100
-            }
-        },
-        r_count: 5,
-        r_spacing: 10, // px
-        r_size: 100, // px
-        r_thickness: 3, // px
-        update_interval: 11, // ms
+    <header class="site-header">
+        <div class="header-bar">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-10 col-lg-4">
+                        <h1 class="site-branding flex">
+                            <a href="#">P.P.</a>
+                        </h1>
+                    </div>
 
+                    <div class="col-2 col-lg-8">
+                        <nav class="site-navigation">
+                            <div class="hamburger-menu d-lg-none">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div><!-- .hamburger-menu -->
 
-        init: function(){
+<!--                            <ul>-->
+<!--                                <li><a href="#">HOME</a></li>-->
+<!--                                <li><a href="#">SUNFEST 2018</a></li>-->
+<!--                                <li><a href="#">ARTISTS</a></li>-->
+<!--                                <li><a href="#">BLOG</a></li>-->
+<!--                                <li><a href="#">CONTACT</a></li>-->
+<!--                                <li><a href="#"><i class="fas fa-search"></i></a></li>-->
+<!--                            </ul>&lt;!&ndash; flex &ndash;&gt;-->
+                        </nav><!-- .site-navigation -->
+                    </div><!-- .col-12 -->
+                </div><!-- .row -->
+            </div><!-- container-fluid -->
+        </div><!-- header-bar -->
+    </header><!-- .site-header -->
 
-            $r = ringer;
-            $r.cvs = document.createElement('canvas');
+    <div class="hero-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 offset-lg-1 col-lg-11">
+                    <div class="entry-header">
+                        <h2>Secret Party!</h2>
 
-            $r.size = {
-                w: ($r.r_size + $r.r_thickness) * $r.r_count + ($r.r_spacing*($r.r_count-1)),
-                h: ($r.r_size + $r.r_thickness)
-            };
+                        <div class="entry-meta-date">
+                            28.10.2023
+                        </div><!-- .entry-meta-date -->
+                    </div><!-- .entry-header -->
 
-            $r.cvs.setAttribute('width',$r.size.w);
-            $r.cvs.setAttribute('height',$r.size.h);
-            $r.ctx = $r.cvs.getContext('2d');
-            $(".countdownwrap").append($r.cvs);
-            $r.cvs = $($r.cvs);
-            $r.ctx.textAlign = 'center';
-            $r.actual_size = $r.r_size + $r.r_thickness;
-            $r.countdown_to_time = new Date($r.countdown_to).getTime();
-            $r.cvs.css({ width: 100+"%", height: "auto" });
-            $r.go();
-        },
-        ctx: null,
-        go: function(){
-            var idx=0;
+                    <div class="countdown flex flex-wrap justify-content-between" data-date="2023/10/28">
+                        <div class="countdown-holder">
+                            <div class="dday"></div>
+                            <label>Días</label>
+                        </div><!-- .countdown-holder -->
 
-            $r.time = $r.countdown_to_time - (new Date().getTime());
-            for(var r_key in $r.rings) $r.unit(idx++,r_key,$r.rings[r_key]);
+                        <div class="countdown-holder">
+                            <div class="dhour"></div>
+                            <label>Horas</label>
+                        </div><!-- .countdown-holder -->
 
-            setTimeout($r.go,$r.update_interval);
-        },
-        unit: function(idx,label,ring) {
-            var x,y, value, ring_secs = ring.s;
-            value = parseFloat($r.time/ring_secs);
-            $r.time-=Math.round(parseInt(value)) * ring_secs;
-            value = Math.abs(value);
+                        <div class="countdown-holder">
+                            <div class="dmin"></div>
+                            <label>Minutos</label>
+                        </div><!-- .countdown-holder -->
 
-            x = ($r.r_size*.5 + $r.r_thickness*.5);
-            x +=+(idx*($r.r_size+$r.r_spacing+$r.r_thickness));
-            y = $r.r_size*.5;
-            y += $r.r_thickness*.5;
+                        <div class="countdown-holder">
+                            <div class="dsec"></div>
+                            <label>Segundos</label>
+                        </div><!-- .countdown-holder -->
+                    </div><!-- .countdown -->
+                </div><!-- .col-12 -->
+            </div><!-- row -->
 
+            <div class="row">
+                <div class="col-12 ">
+                    <div class="entry-footer">
+                        <a href="https://maps.app.goo.gl/XYRMHD4zeAoiS4yE6" target="_blank" class="btn">Dirección</a>
+                        <a href="#" id="tragos" class="btn current">Tragos</a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .container -->
+    </div><!-- .hero-content -->
 
-            // calculate arc end angle
-            var degrees = 360-(value / ring.max) * 360.0;
-            var endAngle = degrees * (Math.PI / 180);
+<!--    <div class="content-section">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-12">-->
+<!--                    <div class="lineup-artists-headline">-->
+<!--                        <div class="entry-title">-->
+<!--                            <p>JUST THE BEST</p>-->
+<!--                            <h2>The Lineup Artists-Headliners</h2>-->
+<!--                        </div>&lt;!&ndash; entry-title &ndash;&gt;-->
 
-            $r.ctx.save();
+<!--                        <div class="lineup-artists">-->
+<!--                            <div class="lineup-artists-wrap flex flex-wrap">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <a href="#"> <img src="images/black-chick.jpg" alt=""> </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
 
-            $r.ctx.translate(x,y);
-            $r.ctx.clearRect($r.actual_size*-0.5,$r.actual_size*-0.5,$r.actual_size,$r.actual_size);
+<!--                                <div class="lineup-artists-description">-->
+<!--                                    <div class="lineup-artists-description-container">-->
+<!--                                        <div class="entry-title">-->
+<!--                                            Jamila Williams-->
+<!--                                        </div>&lt;!&ndash; entry-title &ndash;&gt;-->
 
-            // first circle
-            $r.ctx.strokeStyle = "rgba(128,128,128,0.2)";
-            $r.ctx.beginPath();
-            $r.ctx.arc(0,0,$r.r_size/2,0,2 * Math.PI, 2);
-            $r.ctx.lineWidth =$r.r_thickness;
-            $r.ctx.stroke();
+<!--                                        <div class="entry-content">-->
+<!--                                            <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum. </p>-->
+<!--                                        </div>&lt;!&ndash; entry-content &ndash;&gt;-->
 
-            // second circle
-            $r.ctx.strokeStyle = "#a5ff01";
-            $r.ctx.beginPath();
-            $r.ctx.arc(0,0,$r.r_size/2,0,endAngle, 1);
-            $r.ctx.lineWidth =$r.r_thickness;
-            $r.ctx.stroke();
+<!--                                        <div class="box-link">-->
+<!--                                            <a href=""><img src="images/box.jpg" alt=""></a>-->
+<!--                                        </div>&lt;!&ndash; box-link &ndash;&gt;-->
+<!--                                    </div>&lt;!&ndash; lineup-artists-description-container &ndash;&gt;-->
+<!--                                </div>&lt;!&ndash; lineup-artists-description &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; lineup-artists-wrap &ndash;&gt;-->
 
-            // label
-            $r.ctx.fillStyle = "#ffffff";
+<!--                            <div class="lineup-artists-wrap flex flex-wrap">-->
+<!--                                <div class="lineup-artists-description">-->
+<!--                                    <figure class="featured-image d-md-none">-->
+<!--                                        <a href="#"> <img src="images/mathew-kane.jpg" alt=""> </a>-->
+<!--                                    </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
 
-            $r.ctx.font = '12px Helvetica';
-            $r.ctx.fillText(label, 0, 23);
-            $r.ctx.fillText(label, 0, 23);
+<!--                                    <div class="lineup-artists-description-container">-->
+<!--                                        <div class="entry-title">-->
+<!--                                            Sandra Superstar-->
+<!--                                        </div>&lt;!&ndash; entry-title &ndash;&gt;-->
 
-            $r.ctx.font = 'bold 40px Helvetica';
-            $r.ctx.fillText(Math.floor(value), 0, 10);
+<!--                                        <div class="entry-content">-->
+<!--                                            <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum. </p>-->
+<!--                                        </div>&lt;!&ndash; entry-content &ndash;&gt;-->
 
-            $r.ctx.restore();
-        }
-    }
+<!--                                        <div class="box-link">-->
+<!--                                            <a href="#"><img src="images/box.jpg" alt=""></a>-->
+<!--                                        </div>&lt;!&ndash; box-link &ndash;&gt;-->
+<!--                                    </div>&lt;!&ndash; lineup-artists-description-container &ndash;&gt;-->
+<!--                                </div>&lt;!&ndash; lineup-artists-description &ndash;&gt;-->
 
-    ringer.init();
-    // function resize(){
-    //     $("canvas").outerHeight(($(window).height()-600)- (Math.abs($("canvas").outerHeight(true)-80) - ($("canvas").outerHeight()-40)));
-    //     console.log('Math.abs($("canvas").outerHeight(true)',Math.abs($("canvas").outerHeight(true)));
-    //     console.log('$("canvas").outerHeight()',$("canvas").outerHeight()-40);
-    // }
-    // $(document).ready(function(){
-    //     resize();
-    //     $(window).on("resize", function(){
-    //         resize();
-    //     });
-    // });
-</script>
+<!--                                <figure class="featured-image d-none d-md-block">-->
+<!--                                    <a href="#"> <img src="images/mathew-kane.jpg" alt=""> </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; lineup-artists-wrap &ndash;&gt;-->
+
+<!--                            <div class="lineup-artists-wrap flex flex-wrap">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <a href="#"> <img src="images/eric-ward.jpg" alt=""> </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+
+<!--                                <div class="lineup-artists-description">-->
+<!--                                    <div class="lineup-artists-description-container">-->
+<!--                                        <div class="entry-title">-->
+<!--                                            DJ Crazyhead-->
+<!--                                        </div>&lt;!&ndash; entry-title &ndash;&gt;-->
+
+<!--                                        <div class="entry-content">-->
+<!--                                            <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum. </p>-->
+<!--                                        </div>&lt;!&ndash; entry-content &ndash;&gt;-->
+
+<!--                                        <div class="box-link">-->
+<!--                                            <a href="#"> <img src="images/box.jpg" alt=""></a>-->
+<!--                                        </div>&lt;!&ndash; box-link &ndash;&gt;-->
+<!--                                    </div>&lt;!&ndash; lineup-artists-description-container &ndash;&gt;-->
+<!--                                </div>&lt;!&ndash; lineup-artists-description &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; lineup-artists-wrap &ndash;&gt;-->
+<!--                        </div>&lt;!&ndash; lineup-artists &ndash;&gt;-->
+<!--                    </div>&lt;!&ndash; lineup-artists-headline &ndash;&gt;-->
+<!--                </div>&lt;!&ndash; col-12 &ndash;&gt;-->
+<!--            </div>&lt;!&ndash; row &ndash;&gt;-->
+
+<!--            <div class="row">-->
+<!--                <div class="col-12">-->
+<!--                    <div class="the-complete-lineup">-->
+<!--                        <div class="entry-title">-->
+<!--                            <p>JUST THE BEST</p>-->
+<!--                            <h2>The Complete Lineup</h2>-->
+<!--                        </div>&lt;!&ndash; entry-title &ndash;&gt;-->
+
+<!--                        <div class="row the-complete-lineup-artists">-->
+<!--                            <div class="col-6 col-md-4 col-lg-3 artist-single">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <a href="#"> <img src="images/image-1.jpg" alt=""> </a>-->
+<!--                                    <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+
+<!--                                <h2>Miska Smith</h2>-->
+<!--                            </div>&lt;!&ndash; artist-single &ndash;&gt;-->
+
+<!--                            <div class="col-6 col-md-4 col-lg-3 artist-single">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <a href="#"> <img src="images/image-2.jpg" alt=""> </a>-->
+<!--                                    <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+
+<!--                                <h2>Hayley Down</h2>-->
+<!--                            </div>&lt;!&ndash; artist-single &ndash;&gt;-->
+
+<!--                            <div class="col-6 col-md-4 col-lg-3 artist-single">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <a href="#"> <img src="images/image-3.jpg" alt=""> </a>-->
+<!--                                    <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+
+<!--                                <h2>The Band Song</h2>-->
+<!--                            </div>&lt;!&ndash; artist-single &ndash;&gt;-->
+
+<!--                            <div class="col-6 col-md-4 col-lg-3 artist-single">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <a href="#"> <img src="images/image-4.jpg" alt=""> </a>-->
+<!--                                    <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+
+<!--                                <h2>Pink Machine</h2>-->
+<!--                            </div>&lt;!&ndash; artist-single &ndash;&gt;-->
+
+<!--                            <div class="col-6 col-md-4 col-lg-3 artist-single">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <a href="#"> <img src="images/image-5.jpg" alt=""> </a>-->
+<!--                                    <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+
+<!--                                <h2>Brasil Band</h2>-->
+<!--                            </div>&lt;!&ndash; artist-single &ndash;&gt;-->
+
+<!--                            <div class="col-6 col-md-4 col-lg-3 artist-single">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <a href="#"> <img src="images/image-6.jpg" alt=""> </a>-->
+<!--                                    <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+
+<!--                                <h2>Mickey</h2>-->
+<!--                            </div>&lt;!&ndash; artist-single &ndash;&gt;-->
+
+<!--                            <div class="col-6 col-md-4 col-lg-3 artist-single">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <a href="#"> <img src="images/image-7.jpg" alt=""> </a>-->
+<!--                                    <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+
+<!--                                <h2>DJ Girl</h2>-->
+<!--                            </div>&lt;!&ndash; artist-single &ndash;&gt;-->
+
+<!--                            <div class="col-6 col-md-4 col-lg-3 artist-single">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <a href="#"> <img src="images/image-8.jpg" alt=""> </a>-->
+<!--                                    <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+
+<!--                                <h2>Stan Smith</h2>-->
+<!--                            </div>&lt;!&ndash; artist-single &ndash;&gt;-->
+<!--                        </div>&lt;!&ndash; the-complete-lineup-artists &ndash;&gt;-->
+
+<!--                        <div class="row justify-content-center">-->
+<!--                            <div class="see-complete-lineup">-->
+<!--                                <div class="entry-footer">-->
+<!--                                    <a href="#" class="btn">See all lineup</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>&lt;!&ndash; the-complete-lineup &ndash;&gt;-->
+<!--                </div>&lt;!&ndash; col-12 &ndash;&gt;-->
+<!--            </div>&lt;!&ndash; row &ndash;&gt;-->
+<!--        </div>&lt;!&ndash; container &ndash;&gt;-->
+
+<!--        <div class="homepage-next-events">-->
+<!--            <div class="container">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-12">-->
+<!--                        <div class="entry-title">-->
+<!--                            <p>JUST THE BEST</p>-->
+<!--                            <h2>Our Next Events</h2>-->
+<!--                        </div>&lt;!&ndash; entry-title &ndash;&gt;-->
+<!--                    </div>&lt;!&ndash; col-12 &ndash;&gt;-->
+<!--                </div>&lt;!&ndash; row &ndash;&gt;-->
+<!--            </div>&lt;!&ndash; container &ndash;&gt;-->
+
+<!--            <div class="next-event-slider-wrap">-->
+<!--                <div class="swiper-container next-event-slider">-->
+<!--                    <div class="swiper-wrapper">-->
+<!--                        <div class="swiper-slide">-->
+<!--                            <div class="next-event-content">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <img src="images/next-event-1.jpg" alt="">-->
+
+<!--                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">-->
+<!--                                        <h3>Welcoming Party 2018</h3>-->
+<!--                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>-->
+<!--                                    </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; next-event-content &ndash;&gt;-->
+<!--                        </div>&lt;!&ndash; swiper-slide" &ndash;&gt;-->
+
+<!--                        <div class="swiper-slide">-->
+<!--                            <div class="next-event-content">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <img src="images/next-event-2.jpg" alt="">-->
+
+<!--                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">-->
+<!--                                        <h3>Welcoming Party 2018</h3>-->
+<!--                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>-->
+<!--                                    </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; next-event-content &ndash;&gt;-->
+<!--                        </div>&lt;!&ndash; swiper-slide" &ndash;&gt;-->
+
+<!--                        <div class="swiper-slide">-->
+<!--                            <div class="next-event-content">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <img src="images/next-event-3.jpg" alt="">-->
+
+<!--                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">-->
+<!--                                        <h3>Welcoming Party 2018</h3>-->
+<!--                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>-->
+<!--                                    </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; next-event-content &ndash;&gt;-->
+<!--                        </div>&lt;!&ndash; swiper-slide" &ndash;&gt;-->
+
+<!--                        <div class="swiper-slide">-->
+<!--                            <div class="next-event-content">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <img src="images/next-event-1.jpg" alt="">-->
+
+<!--                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">-->
+<!--                                        <h3>Welcoming Party 2018</h3>-->
+<!--                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>-->
+<!--                                    </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; next-event-content &ndash;&gt;-->
+<!--                        </div>&lt;!&ndash; swiper-slide" &ndash;&gt;-->
+
+<!--                        <div class="swiper-slide">-->
+<!--                            <div class="next-event-content">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <img src="images/next-event-2.jpg" alt="">-->
+
+<!--                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">-->
+<!--                                        <h3>Welcoming Party 2018</h3>-->
+<!--                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>-->
+<!--                                    </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; next-event-content &ndash;&gt;-->
+<!--                        </div>&lt;!&ndash; swiper-slide" &ndash;&gt;-->
+
+<!--                        <div class="swiper-slide">-->
+<!--                            <div class="next-event-content">-->
+<!--                                <figure class="featured-image">-->
+<!--                                    <img src="images/next-event-3.jpg" alt="">-->
+
+<!--                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">-->
+<!--                                        <h3>Welcoming Party 2018</h3>-->
+<!--                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>-->
+<!--                                    </a>-->
+<!--                                </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; next-event-content &ndash;&gt;-->
+<!--                        </div>&lt;!&ndash; swiper-slide" &ndash;&gt;-->
+<!--                    </div>&lt;!&ndash; .swiper-wrapper &ndash;&gt;-->
+<!--                </div>&lt;!&ndash; .swiper-container &ndash;&gt;-->
+
+<!--                <div class="swiper-button-next">-->
+<!--                    <img src="images/button.png" alt="">-->
+<!--                </div>&lt;!&ndash; .slider-button &ndash;&gt;-->
+<!--            </div>&lt;!&ndash; .next-event-slider-wrap &ndash;&gt;-->
+<!--        </div>&lt;!&ndash; homepage-next-events &ndash;&gt;-->
+
+<!--        <div class="home-page-last-news">-->
+<!--            <div class="container">-->
+<!--                <div class="header">-->
+<!--                    <div class="entry-title">-->
+<!--                        <p>JUST THE BEST</p>-->
+<!--                        <h2>Our Last News</h2>-->
+<!--                    </div>&lt;!&ndash; entry-title &ndash;&gt;-->
+<!--                </div>&lt;!&ndash; header &ndash;&gt;-->
+
+<!--                <div class="home-page-last-news-wrap">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-12 col-md-6">-->
+<!--                            <figure class="featured-image">-->
+<!--                                <a href="#"> <img src="images/news-image-1.jpg" alt="fesival+celebration"> </a>-->
+<!--                            </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+
+<!--                            <div class="box-link-date">-->
+<!--                                <a href="#">03.12.18</a>-->
+<!--                            </div>-->
+
+<!--                            <div class="content-wrapper">-->
+<!--                                <div class="entry-content">-->
+<!--                                    <div class="entry-header">-->
+<!--                                        <h2><a href="#">10 Festival Tips</a></h2>-->
+<!--                                    </div>&lt;!&ndash; entry-header &ndash;&gt;-->
+
+<!--                                    <div class="entry-meta">-->
+<!--                                        <span class="author-name"><a href="#"> By James Williams</a></span>-->
+<!--                                        <span class="space">|</span>-->
+<!--                                        <span class="comments-count"><a href="#">3 comments</a></span>-->
+<!--                                    </div>&lt;!&ndash; entry-meta &ndash;&gt;-->
+
+<!--                                    <div class="entry-description">-->
+<!--                                        <p>Quisque at erat eu libero consequat tempus.-->
+<!--                                            Quisque mole stie convallis tempus.-->
+<!--                                            Ut semper purus metus, a euismod sapien sodales ac.-->
+<!--                                            Duis viverra eleifend fermentum.</p>-->
+<!--                                    </div>&lt;!&ndash; entry-description &ndash;&gt;-->
+<!--                                </div>&lt;!&ndash; entry-content &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; content-wrapper &ndash;&gt;-->
+<!--                        </div>&lt;!&ndash; .col-6 &ndash;&gt;-->
+
+<!--                        <div class="col-12 col-md-6">-->
+<!--                            <figure class="featured-image">-->
+<!--                                <a href="#"> <img src="images/news-image-1.jpg" alt="fesival+celebration"> </a>-->
+<!--                            </figure>&lt;!&ndash; featured-image &ndash;&gt;-->
+
+<!--                            <div class="box-link-date">-->
+<!--                                <a href="">03.12.18</a>-->
+<!--                            </div>-->
+
+<!--                            <div class="content-wrapper">-->
+<!--                                <div class="entry-content">-->
+<!--                                    <div class="entry-header">-->
+<!--                                        <h2><a href="#">New event calendar for this year</a></h2>-->
+<!--                                    </div>&lt;!&ndash; entry-header &ndash;&gt;-->
+
+<!--                                    <div class="entry-meta">-->
+<!--                                        <span class="author-name"><a href="#">By James Williams</a></span>-->
+<!--                                        <span class="space">|</span>-->
+<!--                                        <span class="comments-count"><a href="#">3 comments</a></span>-->
+<!--                                    </div>&lt;!&ndash; entry-meta &ndash;&gt;-->
+
+<!--                                    <div class="entry-description">-->
+<!--                                        <p>Quisque at erat eu libero consequat tempus.-->
+<!--                                            Quisque mole stie convallis tempus.-->
+<!--                                            Ut semper purus metus, a euismod sapien sodales ac.-->
+<!--                                            Duis viverra eleifend fermentum.</p>-->
+<!--                                    </div>&lt;!&ndash; entry-description &ndash;&gt;-->
+<!--                                </div>&lt;!&ndash; entry-content &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; .content-wrapper &ndash;&gt;-->
+<!--                        </div>&lt;!&ndash; col-6 &ndash;&gt;-->
+<!--                    </div>&lt;!&ndash; row &ndash;&gt;-->
+<!--                </div>&lt;!&ndash; home-page-last-news-wrap &ndash;&gt;-->
+<!--            </div>&lt;!&ndash; container &ndash;&gt;-->
+<!--        </div>&lt;!&ndash; home-page-last-news &ndash;&gt;-->
+<!--    </div>-->
+
+<!--    <footer class="site-footer">-->
+<!--        <div class="footer-cover-title flex justify-content-center align-items-center">-->
+<!--            <h2>SUNFEST</h2>-->
+<!--        </div>&lt;!&ndash; .site-footer &ndash;&gt;-->
+
+<!--        <div class="footer-content-wrapper">-->
+<!--            <div class="container">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-12">-->
+<!--                        <div class="entry-title">-->
+<!--                            <a href="#">SUNFEST</a>-->
+<!--                        </div>&lt;!&ndash; entry-title &ndash;&gt;-->
+
+<!--                        <div class="entry-mail">-->
+<!--                            <a href="#">SAYHELLO@SUNFEST.COM</a>-->
+<!--                        </div>&lt;!&ndash; .entry-mail &ndash;&gt;-->
+
+<!--                        <div class="copyright-info">-->
+<!--                            &lt;!&ndash; Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. &ndash;&gt;-->
+<!--Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>-->
+<!--&lt;!&ndash; Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. &ndash;&gt;-->
+<!--                        </div>&lt;!&ndash; copyright-info &ndash;&gt;-->
+
+<!--                        <div class="footer-social">-->
+<!--                            <ul class="flex justify-content-center align-items-center">-->
+<!--                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>-->
+<!--                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>-->
+<!--                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>-->
+<!--                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>-->
+<!--                                <li><a href="#"><i class="fab fa-behance"></i></a></li>-->
+<!--                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>-->
+<!--                            </ul>-->
+<!--                        </div>&lt;!&ndash; footer-social &ndash;&gt;-->
+<!--                    </div>&lt;!&ndash; col &ndash;&gt;-->
+<!--                </div>&lt;!&ndash; row &ndash;&gt;-->
+<!--            </div>&lt;!&ndash; container &ndash;&gt;-->
+<!--        </div>&lt;!&ndash; footer-content-wrapper &ndash;&gt;-->
+<!--    </footer>&lt;!&ndash; site-footer &ndash;&gt;-->
+
+    <script type='text/javascript' src='js/jquery.js'></script>
+    <script type='text/javascript' src='js/masonry.pkgd.min.js'></script>
+    <script type='text/javascript' src='js/jquery.collapsible.min.js'></script>
+    <script type='text/javascript' src='js/swiper.min.js'></script>
+    <script type='text/javascript' src='js/jquery.countdown.min.js'></script>
+    <script type='text/javascript' src='js/circle-progress.min.js'></script>
+    <script type='text/javascript' src='js/jquery.countTo.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+    <script type='text/javascript' src='js/custom.js'></script>
 </body>
 </html>
