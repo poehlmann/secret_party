@@ -2,6 +2,15 @@
 (function($) {
     // 'use strict';
 
+    window.onload = function() {
+        Particles.init({
+            selector: '.background',
+            sizeVariations: 30,
+            color: [
+                'rgba(212,255,0,0.69)', 'rgba(166,196,32,0.49)', 'rgba(128,141,76,0.35)'
+            ]
+        });
+    };
 
     $(document).on('click', '#tragos', function(e) {
         swal({
