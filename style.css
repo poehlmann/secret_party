@@ -629,7 +629,7 @@ span:hover {
     .lineup-artists .lineup-artists-wrap .lineup-artists-description-container {
         position: absolute;
         z-index: 99;
-        top: 100px;
+        top: 35px;
         left: -75px;
         width: calc(100% + 75px);
     }
