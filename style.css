@@ -439,6 +439,7 @@ span:hover {
 }
 
 @media screen and (min-width: 992px) {
+
     .hero-content .entry-header h2 {
         font-size: 172px;
     }
@@ -531,7 +532,7 @@ span:hover {
 ## lineup-artists-headline
 ------------------------------------------------------------*/
 .lineup-artists-headline {
-    margin-top: 115px;
+    margin-top: 50px;
 }
 
 .lineup-artists-headline .entry-title p {
@@ -544,8 +545,9 @@ span:hover {
 
 .lineup-artists-headline .entry-title h2 {
     width: 100%;
-    font-size: 48px;
+    font-size: 28px;
     font-weight: 600;
+    text-align: justify;
     color: hsl(0, 0%, 0%);
 }
 
@@ -555,7 +557,7 @@ span:hover {
 ## lineup-artists
 ------------------------------------------------------------*/
 .lineup-artists {
-    padding-top: 80px;
+    padding-top: 0px;
 }
 
 .lineup-artists .featured-image {
@@ -576,7 +578,7 @@ span:hover {
 ### lineup-artists-wrap
 ------------------------------------------------------------*/
 .lineup-artists .lineup-artists-wrap {
-    margin-top: 80px;
+    margin-top: 0px;
 }
 
 .lineup-artists .lineup-artists-wrap .lineup-artists-description {
@@ -611,6 +613,11 @@ span:hover {
     top: -24px;
     right: 50px;
     z-index: 999;
+}
+@media screen and (max-width: 992px){
+    .lineup-artists-headline .entry-title h2 {
+    text-align: left !important;
+    }
 }
 
 @media screen and (min-width: 768px) {
