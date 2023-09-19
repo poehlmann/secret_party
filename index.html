@@ -29,7 +29,55 @@
 </head>
 
 <body>
+<div id="tsparticles"></div>
+
 <!--    <header class="site-header">-->
+<!--        <div id="app-cover">-->
+<!--            <div id="bg-artwork"></div>-->
+<!--            <div id="bg-layer"></div>-->
+<!--            <div id="player">-->
+<!--                <div id="player-track">-->
+<!--                    <div id="album-name"></div>-->
+<!--                    <div id="track-name"></div>-->
+<!--                    <div id="track-time">-->
+<!--                        <div id="current-time"></div>-->
+<!--                        <div id="track-length"></div>-->
+<!--                    </div>-->
+<!--                    <div id="s-area">-->
+<!--                        <div id="ins-time"></div>-->
+<!--                        <div id="s-hover"></div>-->
+<!--                        <div id="seek-bar"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div id="player-content">-->
+<!--                    <div id="album-art">-->
+<!--                        <img src="https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_1.jpg" class="active" id="_1">-->
+<!--                        <img src="https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_2.jpg" id="_2">-->
+<!--                        <img src="https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_3.jpg" id="_3">-->
+<!--                        <img src="https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_4.jpg" id="_4">-->
+<!--                        <img src="https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_5.jpg" id="_5">-->
+<!--                        <div id="buffer-box">Buffering ...</div>-->
+<!--                    </div>-->
+<!--                    <div id="player-controls">-->
+<!--                        <div class="control">-->
+<!--                            <div class="button" id="play-previous">-->
+<!--                                <i class="fas fa-backward"></i>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="control">-->
+<!--                            <div class="button" id="play-pause-button">-->
+<!--                                <i class="fas fa-play"></i>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="control">-->
+<!--                            <div class="button" id="play-next">-->
+<!--                                <i class="fas fa-forward"></i>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 <!--        <div class="header-bar">-->
 <!--            <div class="container-fluid">-->
 <!--                <div class="row align-items-center">-->
@@ -65,7 +113,7 @@
     <div class="hero-content">
         <div class="container">
             <div class="row">
-                <div class="col-12 offset-lg-1 col-lg-11">
+                <div class="col-12 col-lg-12">
                     <div class="entry-header">
                         <h2>Secret Party!</h2>
                         <h3 class="span loader"><span class="m">V</span><span class="m">E</span><span class="m">N</span>
@@ -88,7 +136,7 @@
                         </div><!-- .entry-meta-date -->
                     </div><!-- .entry-header -->
 
-                    <div class="countdown flex flex-wrap justify-content-between" data-date="2023/10/28">
+                    <div class="countdown flex flex-wrap justify-content-center" data-date="2023/10/28">
                         <div class="countdown-holder">
                             <div class="dday"></div>
                             <label>Días</label>
@@ -121,7 +169,7 @@
                 </div>
             </div>
         </div><!-- .container -->
-        <canvas class="background"></canvas><!-- SGVsbG8hIE15IG5hbWUgaXMgU2FyYSBNYXphbC4gV2VsY29tZSB0byBteSBDb2RlUGVuIQ== -->
+<!--        <canvas class="background"></canvas>&lt;!&ndash; SGVsbG8hIE15IG5hbWUgaXMgU2FyYSBNYXphbC4gV2VsY29tZSB0byBteSBDb2RlUGVuIQ== &ndash;&gt;-->
     </div><!-- .hero-content -->
 
     <div class="content-section">
@@ -176,14 +224,13 @@
                                         </div><!-- entry-title -->
 
                                         <div class="entry-content">
-                                            <p>Pasada las 11:30 pm el costo del vaso estará a:<br>
-                                                <ul>
-                                                    <li>1 x 20bs</li>
-                                                    <li>2 x 30 bs</li>
-                                                </ul>
-                                            </p>
+                                            <p>Pasada las 11:30 p.m. el costo del vaso estará a:</p>
+                                            <ul>
+                                                <li>1 x 20bs</li>
+                                                <li>2 x 30 bs</li>
+                                            </ul>
                                             <p>
-                                                <strong>Nota:</strong> Tambien vas a poder comprar combos, que estan en la cartilla siguiente: <a href="#">CARTILLA</a>
+                                                <strong>Nota:</strong>También vas a poder comprar combos, que están en la cartilla siguiente: <a href="#">CARTILLA</a>
                                             </p>
                                         </div><!-- entry-content -->
 
@@ -212,14 +259,15 @@
                                         <div class="entry-content">
                                             <p>Recuerda, puedes reservar tu Lounge/Mesa con la compra anticipada de un combo.<br>
                                                 Puedes reservas con las siguientes personas:
-                                                <ul>
-                                                    <li><a href="https://wa.link/oymhrw">Darwin</a></li>
-                                                    <li><a href="https://wa.link/s46j7t">Lisset</a></li>
-                                                    <li><a href="https://wa.link/qpovn5">Bruno</a></li>
-                                                    <li><a href="https://wa.link/rj1y2q">Fatima</a></li>
-                                                    <li><a href="https://wa.link/lmejd0">Karla</a></li>
-                                                </ul>
-                                                <strong>Nota:</strong>La reserva tiene una duración de 1 hora a partir de las 9:00 pm.</p>
+                                            </p>
+                                            <ul>
+                                                <li><a href="https://wa.link/oymhrw">Darwin</a></li>
+                                                <li><a href="https://wa.link/s46j7t">Lisset</a></li>
+                                                <li><a href="https://wa.link/qpovn5">Bruno</a></li>
+                                                <li><a href="https://wa.link/rj1y2q">Fatima</a></li>
+                                                <li><a href="https://wa.link/lmejd0">Karla</a></li>
+                                            </ul>
+                                            <p><strong>Nota:</strong>La reserva tiene una duración de 1 hora a partir de las 9:00 pm.</p>
                                         </div><!-- entry-content -->
 
 <!--                                        <div class="box-link">-->
@@ -523,7 +571,7 @@
             </div><!-- container -->
         </div><!-- footer-content-wrapper -->
     </footer><!-- site-footer -->
-
+<audio type="audio/mp3" src="sounds/buen-viaje-deephouse-dezko-ascend-afterlife-foryoupage-fly.mp3" autoplay loop>
     <script type='text/javascript' src='js/jquery.js'></script>
     <script type='text/javascript' src='js/masonry.pkgd.min.js'></script>
     <script type='text/javascript' src='js/jquery.collapsible.min.js'></script>
@@ -533,6 +581,8 @@
     <script type='text/javascript' src='js/jquery.countTo.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
     <script type='text/javascript' src='js/custom.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
+    <!-- first include tsParticles engine -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.41.0/tsparticles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-interaction-light@1.41.0/tsparticles.interaction.light.min.js"></script>
 </body>
 </html>

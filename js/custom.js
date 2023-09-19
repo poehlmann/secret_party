@@ -1,16 +1,258 @@
-
+// this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+// starting from v2 you can add only the features you need reducing the bundle size
+window.addEventListener('DOMContentLoaded', (event) => {
+    particlesJS("particles-js",
+        {
+            "autoPlay": true,
+            "delay": 0,
+            "detectRetina": true,
+            "fpsLimit": 120,
+            "particles": {
+                "bounce": {
+                    "horizontal": {
+                        "random": {
+                            "enable": true,
+                            "minimumValue": 0.1
+                        },
+                        "value": {
+                            "min": 0.1,
+                            "max": 1
+                        }
+                    },
+                    "vertical": {
+                        "random": {
+                            "enable": false,
+                            "minimumValue": 0.1
+                        },
+                        "value": 1
+                    }
+                },
+                "collisions": {
+                    "absorb": {
+                        "speed": 2
+                    },
+                    "bounce": {
+                        "horizontal": {
+                            "random": {
+                                "enable": false,
+                                "minimumValue": 0.1
+                            },
+                            "value": 1
+                        },
+                        "vertical": {
+                            "random": {
+                                "enable": false,
+                                "minimumValue": 0.1
+                            },
+                            "value": 1
+                        }
+                    },
+                    "enable": false,
+                    "maxSpeed": 30,
+                    "mode": "bounce",
+                    "overlap": {
+                        "enable": true,
+                        "retries": 0
+                    }
+                },
+                "color": {
+                    "value": [
+                        'rgba(212,255,0,0.69)', 'rgba(166,196,32,0.49)', 'rgba(128,141,76,0.35)'
+                    ],
+                    "animation": {
+                        "h": {
+                            "count": 0,
+                            "enable": false,
+                            "offset": 0,
+                            "speed": 20,
+                            "delay": 0,
+                            "decay": 0,
+                            "sync": true
+                        },
+                        "s": {
+                            "count": 0,
+                            "enable": false,
+                            "offset": 0,
+                            "speed": 1,
+                            "delay": 0,
+                            "decay": 0,
+                            "sync": true
+                        },
+                        "l": {
+                            "count": 0,
+                            "enable": false,
+                            "offset": 0,
+                            "speed": 1,
+                            "delay": 0,
+                            "decay": 0,
+                            "sync": true
+                        }
+                    }
+                },
+                "groups": {},
+                "move": {
+                    "angle": {
+                        "offset": 0,
+                        "value": 90
+                    },
+                    "attract": {
+                        "distance": 200,
+                        "enable": false,
+                        "rotate": {
+                            "x": 3000,
+                            "y": 3000
+                        }
+                    },
+                    "center": {
+                        "x": 50,
+                        "y": 50,
+                        "mode": "percent",
+                        "radius": 0
+                    },
+                    "decay": 0,
+                    "distance": {},
+                    "direction": "none",
+                    "drift": 0,
+                    "enable": true,
+                    "gravity": {
+                        "acceleration": 9.81,
+                        "enable": false,
+                        "inverse": false,
+                        "maxSpeed": 50
+                    },
+                    "path": {
+                        "clamp": true,
+                        "delay": {
+                            "random": {
+                                "enable": false,
+                                "minimumValue": 0
+                            },
+                            "value": 0
+                        },
+                        "enable": false,
+                        "options": {}
+                    },
+                    "outModes": {
+                        "default": "out",
+                        "bottom": "out",
+                        "left": "out",
+                        "right": "out",
+                        "top": "out"
+                    },
+                    "random": false,
+                    "size": false,
+                    "speed": 3,
+                    "spin": {
+                        "acceleration": 0,
+                        "enable": false
+                    },
+                    "straight": false,
+                    "trail": {
+                        "enable": false,
+                        "length": 10,
+                        "fill": {}
+                    },
+                    "vibrate": false,
+                    "warp": false
+                },
+                "number": {
+                    "density": {
+                        "enable": true,
+                        "width": 1920,
+                        "height": 1080
+                    },
+                    "limit": 0,
+                    "value": 30
+                },
+                "opacity": {
+                    "random": {
+                        "enable": false,
+                        "minimumValue": 1
+                    },
+                    "value": {
+                        "min": 0.1,
+                        "max": 0.5
+                    },
+                    "animation": {
+                        "count": 0,
+                        "enable": false,
+                        "speed": 1,
+                        "decay": 0,
+                        "delay": 0,
+                        "sync": false,
+                        "mode": "auto",
+                        "startValue": "random",
+                        "destroy": "none"
+                    }
+                },
+                "reduceDuplicates": false,
+                "shadow": {
+                    "blur": 0,
+                    "color": {
+                        "value": "#000"
+                    },
+                    "enable": true,
+                    "offset": {
+                        "x": 0,
+                        "y": 0
+                    }
+                },
+                "shape": {
+                    "close": true,
+                    "fill": true,
+                    "options": {},
+                    "type": "circle"
+                },
+                "size": {
+                    "random": {
+                        "enable": false,
+                        "minimumValue": 50
+                    },
+                    "value": {
+                        "min": 5,
+                        "max": 30
+                    },
+                    "animation": {
+                        "count": 0,
+                        "enable": true,
+                        "speed": 1,
+                        "decay": 0,
+                        "delay": 0,
+                        "sync": false,
+                        "mode": "auto",
+                        "startValue": "random",
+                        "destroy": "none"
+                    }
+                },
+                "zIndex": {
+                    "random": {
+                        "enable": false,
+                        "minimumValue": 0
+                    },
+                    "value": 0,
+                    "opacityRate": 1,
+                    "sizeRate": 1,
+                    "velocityRate": 1
+                },
+            },
+            "responsive": [],
+            "smooth": false,
+        });
+});
 (function($) {
     // 'use strict';
 
-    window.onload = function() {
-        Particles.init({
-            selector: '.background',
-            sizeVariations: 30,
-            color: [
-                'rgba(212,255,0,0.69)', 'rgba(166,196,32,0.49)', 'rgba(128,141,76,0.35)'
-            ]
-        });
-    };
+
+
+    // window.onload = function() {
+    //     Particles.init({
+    //         selector: '.background',
+    //         sizeVariations: 30,
+    //         color: [
+    //             'rgba(212,255,0,0.69)', 'rgba(166,196,32,0.49)', 'rgba(128,141,76,0.35)'
+    //         ]
+    //     });
+    // };
 
     $(document).on('click', '#tragos', function(e) {
         swal({

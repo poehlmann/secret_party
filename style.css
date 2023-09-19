@@ -266,6 +266,16 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+#tsparticles {
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    background-color: rgba(234, 255, 76, 0);
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
 .background {
     position: absolute;
     display: block;
@@ -275,8 +285,8 @@ body {
 }
 h3.span {
     font-size: 26px;
-    letter-spacing: 0.2em;
-    font-family: "ROBOTO", sans-serif;
+    /*letter-spacing: 0.2em;*/
+    /*font-family: "ROBOTO", sans-serif;*/
     font-weight: 300;
     color: #faebd7;
     z-index: 4;
@@ -469,10 +479,9 @@ span:hover {
     font-size: 72px;
     font-weight: 600;
     line-height: 1;
-    background: rgb(93,237,56);
     text-align: center;
     display: inline-block;
-    background-image: linear-gradient(181deg, #8bf33e 0%,#8ef33f 25%,#8bf23e 50%,#11ef53 75%,#28a745 100%);
+    background: rgb(93, 237, 56) linear-gradient(181deg, #8bf33e 0%, #8ef33f 25%, #8bf23e 50%, #11ef53 75%, #28a745 100%);
     background-size: 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -536,6 +545,7 @@ span:hover {
 }
 
 .lineup-artists-headline .entry-title p {
+    text-align: center;
     margin: 0 0 10px;
     padding: 0;
     font-size: 14px;
@@ -547,7 +557,7 @@ span:hover {
     width: 100%;
     font-size: 28px;
     font-weight: 600;
-    text-align: justify;
+    text-align: center;
     color: hsl(0, 0%, 0%);
 }
 
@@ -557,7 +567,7 @@ span:hover {
 ## lineup-artists
 ------------------------------------------------------------*/
 .lineup-artists {
-    padding-top: 0px;
+    padding-top: 0;
 }
 
 .lineup-artists .featured-image {
@@ -578,7 +588,7 @@ span:hover {
 ### lineup-artists-wrap
 ------------------------------------------------------------*/
 .lineup-artists .lineup-artists-wrap {
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 .lineup-artists .lineup-artists-wrap .lineup-artists-description {
@@ -702,7 +712,7 @@ span:hover {
 }
 
 .the-complete-lineup-artists .artist-single {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .the-complete-lineup-artists .artist-single:nth-of-type(even) {
