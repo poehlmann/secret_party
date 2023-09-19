@@ -265,7 +265,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     $(document).on('click', '#tragos', function(e) {
         swal({
             title: 'Carta de Tragos!',
-            imageUrl: '/images/la_carta.jpg',
+            imageUrl: '/secret_party//images/la_carta.jpg',
             imageWidth: '100%',
             imageHeight: 'auto',
             imageAlt: 'Carta de tragos - private party',
