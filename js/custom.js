@@ -262,7 +262,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     //     });
     // };
 
-    $(document).on('click', '#tragos', function(e) {
+    $(document).on('click', '.tragos', function(e) {
         swal({
             title: 'Carta de Tragos!',
             imageUrl: '/secret_party//images/la_carta.jpg',
