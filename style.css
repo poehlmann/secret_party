@@ -242,7 +242,7 @@ body {
 }
 
 .hero-content .entry-header h2 {
-    padding: 50px;
+    /*padding: 50px;*/
     margin: 0;
     font-family: 'Brush Script MT', cursive;
     font-size:120px;
@@ -250,6 +250,7 @@ body {
     background: linear-gradient(181deg, #5DED38 0%, #51CF31 25%,#3A9423 50%,#235915 75%,#0C1E07 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    line-height: 0.9;
 }
 
 .hero-content .entry-header h2 {
@@ -445,7 +446,7 @@ span:hover {
     font-weight: 500;
     color: hsl(0, 0%, 90%);
     text-align: center;
-    margin-top: 45px;
+    margin-top: 30px;
 }
 
 @media screen and (min-width: 992px) {
@@ -509,6 +510,7 @@ span:hover {
     margin-right: 20px;
     color: hsl(0, 0%, 17%);
     font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .hero-content .entry-footer a:hover, .hero-content .entry-footer .current {
@@ -978,6 +980,7 @@ span:hover {
 }
 
 .home-page-last-news-wrap .entry-content .entry-header h2 {
+
     font-size: 24px;
     font-weight: 600;
     color: hsl(0, 0%, 9%);
