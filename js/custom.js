@@ -245,7 +245,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     function PlayMusic() {
 
         var play=document.getElementById("music");
-        play.play();
+        // play.play();
     }
 
     $(document).ready(function(){
