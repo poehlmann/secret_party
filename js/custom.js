@@ -242,7 +242,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
 (function($) {
     // 'use strict';
 
+    function PlayMusic() {
 
+        var play=document.getElementById("music");
+        play.play();
+    }
+
+    $(document).ready(function(){
+        setTimeout(PlayMusic,1000);
+    })
 
     // window.onload = function() {
     //     Particles.init({
