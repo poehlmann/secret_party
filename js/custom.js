@@ -257,11 +257,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
     $(document).on('click', '#tragos', function(e) {
         swal({
             title: 'Carta de Tragos!',
-            imageUrl: 'https://image.shutterstock.com/z/stock-vector--exclamation-mark-exclamation-mark-hazard-warning-symbol-flat-design-style-vector-eps-444778462.jpg',
-            imageWidth: 200,
-            imageHeight: 200,
+            imageUrl: '../images/la_carta.jpeg',
+            imageWidth: "auto",
+            imageHeight: "auto",
             imageAlt: 'Carta de tragos - private party',
-            animation: false
+            animation: true
         })
     });
     // Main Navigation
