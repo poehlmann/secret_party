@@ -241,11 +241,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 (function($) {
     // 'use strict';
-
     function PlayMusic() {
 
         var play=document.getElementById("music");
-        // play.play();
+        play.play();
     }
 
     $(document).ready(function(){
